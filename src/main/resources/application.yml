@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: demo1
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/z
+    username: root
+    password: 123456789
+
+server:
+  port: 8080
+  servlet:
+    context-path: / # 8080路径前缀

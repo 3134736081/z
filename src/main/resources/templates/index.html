@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    不论哪个.html中都存在session来存储数据，使用session的时候必须加上if .html才不会报错-->
+    <div th:if="${session.result1 != null}">
+        <div th:text="${session.result1.data}"></div>
+    </div>
+    <a th:href="@{/user/login}">登录</a>
+</body>
+</html>
