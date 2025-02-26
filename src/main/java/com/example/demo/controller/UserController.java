@@ -36,18 +36,26 @@ public class UserController {
     @PostMapping("login")
     public String login(@ModelAttribute User user, Model model, HttpSession httpSession) {
 
-        ResponseDTO<User> userResponseDTO = userService.loginUser(user);
+        ResponseDTO<User> userResponseDTO1 = userService.loginUser(user);
         //info n. 信息；情报
-        logger.info("info:{}", userResponseDTO);
-        model.addAttribute("result", userResponseDTO);
+        logger.info("info:{}", userResponseDTO1);
+        model.addAttribute("result", userResponseDTO1);
 
         System.out.println(user);
 
-        if (userResponseDTO.code() == 401) {
+        if (userResponseDTO1.code() == 401) {
+
             return "login";
         } else {
-            httpSession.setAttribute("result1", userResponseDTO);
-            return "index";
+            httpSession.setAttribute("loginResult", userResponseDTO1);
+            return "redirect:/user/index";
         }
+    }
+
+    @GetMapping("loginOut")
+    public String loginOut(HttpSession httpSession) {
+
+        httpSession.removeAttribute("loginResult");
+        return "index";
     }
 }

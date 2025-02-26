@@ -6,7 +6,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Objects;
 
 @Component
 public class LoginIterator implements HandlerInterceptor {
@@ -16,9 +15,9 @@ public class LoginIterator implements HandlerInterceptor {
 
         HttpSession session = request.getSession();
 
-        Object login = session.getAttribute("result1");
+        Object login = session.getAttribute("loginResult");
 
-        if (Objects.isNull(login)) {
+        if (login == null) {
 
             request.setAttribute("error", "请登录后访问");
 

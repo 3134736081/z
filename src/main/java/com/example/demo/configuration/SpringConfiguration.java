@@ -32,5 +32,12 @@ public class SpringConfiguration implements WebMvcConfigurer {
 
         registry.addInterceptor(loginHandlerInterceptor).addPathPatterns("/**")
                 .excludePathPatterns("/user/index");
+//        registry.addInterceptor(loginHandlerInterceptor)
+//                .addPathPatterns("/**")
+//                .excludePathPatterns(
+//                        "/login",          // 放行登录请求
+//                        "/static/**",     // 放行静态资源
+//                        "/error"          // 放行错误页面
+//                );
     }
 }

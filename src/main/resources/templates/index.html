@@ -6,9 +6,10 @@
 </head>
 <body>
 <!--    不论哪个.html中都存在session来存储数据，使用session的时候必须加上if .html才不会报错-->
-    <div th:if="${session.result1 != null}">
-        <div th:text="${session.result1.data}"></div>
+    <div th:if="${session.loginResult != null}">
+        <div th:text="${session.loginResult.data}"></div>
     </div>
+    <div><a th:href="@{/user/loginOut}">注销</a></div>
     <a th:href="@{/user/login}">登录</a>
 </body>
 </html>
